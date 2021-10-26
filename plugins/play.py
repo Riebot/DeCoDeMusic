@@ -254,7 +254,6 @@ async def play(_, message: Message):
                     InlineKeyboardButton("✨ 𝐆𝐫𝐨𝐮𝐩𝐬", url="t.me/luciddreaams"),
                     InlineKeyboardButton("𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ✨", url="t.me/infobotmusik"),
                 ],
-                [InlineKeyboardButton(text="**❎ 𝐂𝐋𝐎𝐒𝐄 ❎**", callback_data="cls")],
             ]
         )
 
@@ -292,9 +291,8 @@ async def play(_, message: Message):
                         InlineKeyboardButton("✨ 𝐆𝐫𝐨𝐮𝐩𝐬", url="t.me/luciddreaams"),
                         InlineKeyboardButton("𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ✨", url="t.me/infobotmusik"),
                     ],
-                    [InlineKeyboardButton(text="**❎ 𝐂𝐋𝐎𝐒𝐄 ❎**", callback_data="cls")],
                 ]
-            )
+           )
 
         except Exception as e:
             title = "NaN"
@@ -355,13 +353,12 @@ async def play(_, message: Message):
                     InlineKeyboardButton("✨ 𝐆𝐫𝐨𝐮𝐩𝐬", url="t.me/luciddreaams"),
                     InlineKeyboardButton("𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ✨", url="t.me/infobotmusik"),
                 ],
-                [InlineKeyboardButton(text="❎ 𝐂𝐋𝐎𝐒𝐄 ❎", callback_data="cls")],
             ]
         )
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"❌ Video lebih dari {DURATION_LIMIT} menit, tidak dapat di putar!"
             )
             return
         requested_by = message.from_user.first_name
@@ -372,7 +369,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**🎵 Judul:** {}\n**🕒 Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
+            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
                 title,
                 duration,
                 message.from_user.mention(),
@@ -385,7 +382,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**🎵 Judul:** {}\n**🕒 Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
+            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
                 title, duration, message.from_user.mention(), message.chat.title
             ),
         )
