@@ -56,7 +56,6 @@ async def start(_, message: Message):
                     InlineKeyboardButton(
                         "➕ 𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-         ),
-      
-     disable_web_page_preview=True
-    )
+         )
+        disable_web_page_preview=True
+       )
