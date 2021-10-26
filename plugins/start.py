@@ -41,20 +41,18 @@ async def start(_, message: Message):
 🌹 __𝐒𝐩𝐞𝐜𝐢𝐚𝐥 𝐓𝐡𝐚𝐧𝐤𝐬 𝐓𝐨__ : 𝗣𝗮𝘁𝗿𝗶𝗰𝗶𝗮 𝗫 𝗔𝗿𝗶 🌹
 
 👑 __𝐎𝐰𝐧𝐞𝐫__ : [𝐚𝐫𝐢](https://t.me/SilenceSpe4ks)
-
-
-""",
+        """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🌹 𝐆𝐫𝐨𝐮𝐩𝐬", url="https://t.me/luciddreaams"
-                ],[
+                        "𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐋𝐢𝐬𝐭🧰", url="https://telegra.ph/text-10-24")
+                  ],[
                     InlineKeyboardButton(
-                       " 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 🌻", url="https://t.me/infobotmusik"
+                       " 𝐒𝐮𝐩𝐩𝐨𝐫𝐭👿", url="https://t.me/DecodeSupport"
                     ),
                     InlineKeyboardButton(
-                       "☕ 𝐃𝐨𝐧𝐚𝐭𝐞 ☕", url="https://t.me/SilenceSpe4ks"
+                        "𝐔𝐩𝐝𝐚𝐭𝐞𝐬", url="https://t.me/DeecodeBots"
                     )
                 ],[
                     InlineKeyboardButton(
