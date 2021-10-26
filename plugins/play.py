@@ -317,10 +317,12 @@ async def play(_, message: Message):
         if len(message.command) < 2:
             return await lel.edit(
                 "❎ 𝐋𝐚𝐠𝐮 𝐭𝐢𝐝𝐚𝐤 𝐝𝐢𝐭𝐞𝐦𝐮𝐤𝐚𝐧. 𝐂𝐨𝐛𝐚 𝐜𝐚𝐫𝐢 𝐝𝐞𝐧𝐠𝐚𝐧 𝐣𝐮𝐝𝐮𝐥 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐥𝐞𝐛𝐢𝐡 𝐣𝐞𝐥𝐚𝐬.n/𝐂𝐨𝐧𝐭𝐨𝐡 » `/play Jentaka`n/n/𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @infobotmusik"
-        await lel.edit("🔎 Sedang mencari lagu...")
+         )
+
+        await lel.edit("**🔎 𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐧𝐜𝐚𝐫𝐢 𝐥𝐚𝐠𝐮...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("`🎵 Menghubungkan ke VCG...`")
+        await lel.edit("**🎵 𝐌𝐞𝐧𝐠𝐡𝐮𝐛𝐮𝐧𝐠𝐤𝐚𝐧 𝐤𝐞 𝐯𝐜𝐠..**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
