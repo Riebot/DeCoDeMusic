@@ -41,7 +41,7 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "❌ Lagu Tidak Di Temukan..Coba Masukan Judul Lagu Yang Lebih Jelas Dan Detail..Contoh: `/song for revenge - jentaka`"
+            "❌ Lagu Tidak Di Temukan..Coba Masukan Judul Lagu Yang Lebih Jelas Dan Detail\nContoh: `/song for revenge - jentaka`"
         )
         print(str(e))
         return
