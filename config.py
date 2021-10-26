@@ -17,7 +17,7 @@ BOT_USERNAME = getenv("BOT_USERNAME")
 BG_IMAGE = getenv("BG_IMAGE", "https://te.legra.ph/file/1b5f32e7b440302ac6435.png")
 THUMB_IMG = getenv("THUMB_IMG", "https://te.legra.ph/file/1b5f32e7b440302ac6435.png")
 BOT_IMG = getenv("BOT_IMG", "https://te.legra.ph/file/1b5f32e7b440302ac6435.png")
-AUD_IMG = getenv("AUD_IMG", "https://te.legra.ph/file/1b5f32e7b440302ac6435.png")
+AUD_IMG = getenv("AUD_IMG", "https://telegra.ph/file/1f3e2ad7855ce0df6125a.jpg")
 QUE_IMG = getenv("QUE_IMG", "https://te.legra.ph/file/1b5f32e7b440302ac6435.png")
 
 admins = {}
