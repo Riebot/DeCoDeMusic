@@ -19,7 +19,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def stream(_, message: Message):
 
-    lel = await message.reply("🔁 **𝐩𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠** 𝐬𝐨𝐮𝐧𝐝...")
+    lel = await message.reply("🔁 𝐌𝐞𝐧𝐠𝐡𝐮𝐛𝐮𝐧𝐠𝐤𝐚𝐧 𝐤𝐞 𝐯𝐜𝐠...")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -27,11 +27,11 @@ async def stream(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="✨ ɢʀᴏᴜᴘ",
-                        url=f"https://t.me/Decodesupport"),
+                        text="✨ 𝐆𝐫𝐨𝐮𝐩𝐬",
+                        url=f"https://t.me/luciddreaams"),
                     InlineKeyboardButton(
-                        text="🌻 ᴄʜᴀɴɴᴇʟ",
-                        url=f"https://t.me/{UPDATES_CHANNEL}")
+                        text="🌻 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",
+                        url=f"https://t.me/infobotmusik"),
                 ]
             ]
         )
@@ -42,7 +42,7 @@ async def stream(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"𝐕𝐢𝐝𝐞𝐨𝐬 𝐥𝐨𝐧𝐠𝐞𝐫 𝐭𝐡𝐚𝐧 {DURATION_LIMIT} 𝐦𝐢𝐧𝐮𝐭𝐞(𝐬) 𝐚𝐫𝐞𝐧'𝐭 𝐚𝐥𝐥𝐨𝐰𝐞𝐝 𝐭𝐨 𝐩𝐥𝐚𝐲!"
+                f"❎ 𝐕𝐢𝐝𝐞𝐨 𝐥𝐞𝐛𝐢𝐡 𝐝𝐚𝐫𝐢 {DURATION_LIMIT} 𝐦𝐞𝐧𝐢𝐭(𝐬) 𝐭𝐢𝐝𝐚𝐤 𝐝𝐚𝐩𝐚𝐭 𝐝𝐢 𝐩𝐮𝐭𝐚𝐫!"
             )
 
         file_name = get_file_name(audio)
@@ -68,6 +68,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"🎧 **𝐍𝐨𝐰 𝐩𝐥𝐚𝐲𝐢𝐧𝐠** 𝐚 𝐬𝐨𝐧𝐠 𝐫𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐛𝐲 {costumer}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐃𝐞𝐂𝐨𝐝𝐞 𝐀.𝐈__"
+        caption=f"🎧 **𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐦𝐮𝐭𝐚𝐫 𝐥𝐚𝐠𝐮 𝐚𝐭𝐚𝐬 𝐩𝐞𝐫𝐦𝐢𝐧𝐭𝐚𝐚𝐧** {costumer}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐭𝐞𝐫𝐞𝐨 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__"
         )
         return await lel.delete()
