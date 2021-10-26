@@ -49,16 +49,18 @@ async def start(_, message: Message):
                 [
                     InlineKeyboardButton(
                         "🌹 𝐆𝐫𝐨𝐮𝐩𝐬", url="https://t.me/luciddreaams"
-                 [
+                ],[
                     InlineKeyboardButton(
                        " 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 🌻", url="https://t.me/infobotmusik"
-                 [
+                    ),
                     InlineKeyboardButton(
-                        "☕ 𝐃𝐨𝐧𝐚𝐭𝐞 ☕", url="https://t.me/SilenceSpe4ks"
+                       "☕ 𝐃𝐨𝐧𝐚𝐭𝐞 ☕", url="https://t.me/SilenceSpe4ks"
+                    )
                 ],[
                     InlineKeyboardButton(
                         "➕ 𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+                    )
                 ]
             ]
         ),
