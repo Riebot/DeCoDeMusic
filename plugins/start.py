@@ -46,13 +46,13 @@ async def start(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐋𝐢𝐬𝐭🧰", url="https://telegra.ph/text-10-24")
+                        "𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐋𝐢𝐬𝐭 📄", url="https://telegra.ph/text-10-24")
                   ],[
                     InlineKeyboardButton(
-                       " 𝐒𝐮𝐩𝐩𝐨𝐫𝐭👿", url="https://t.me/DecodeSupport"
+                       "🌹 𝐆𝐫𝐨𝐮𝐩𝐬", url="https://t.me/luciddreaams"
                     ),
                     InlineKeyboardButton(
-                        "𝐔𝐩𝐝𝐚𝐭𝐞𝐬", url="https://t.me/DeecodeBots"
+                        "𝐂𝐡𝐚𝐧𝐧𝐞𝐥 🌻", url="https://t.me/infobotmusik"
                     )
                 ],[
                     InlineKeyboardButton(
