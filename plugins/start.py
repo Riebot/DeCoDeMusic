@@ -52,7 +52,7 @@ async def start(_, message: Message):
                  [
                     InlineKeyboardButton(
                        " 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 🌻", url="https://t.me/infobotmusik"
-
+                 [
                     InlineKeyboardButton(
                         "☕ 𝐃𝐨𝐧𝐚𝐭𝐞 ☕", url="https://t.me/SilenceSpe4ks"
                 ],[
