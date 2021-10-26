@@ -176,7 +176,7 @@ async def play(_, message: Message):
     if message.chat.id in DISABLED_GROUPS:
         await message.reply("**maintainence mode is on, ask admin to disable it!**")
         return
-    lel = await message.reply("🔄 **Processing...**")
+    lel = await message.reply("🔄 **𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐦𝐩𝐫𝐨𝐬𝐞𝐬...**")
 
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -251,10 +251,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🚨 Support", url="t.me/decodesupport"),
-                    InlineKeyboardButton("📡 Updates", url="t.me/DeeCodebots"),
+                    InlineKeyboardButton("✨ 𝐆𝐫𝐨𝐮𝐩𝐬", url="t.me/luciddreaams"),
+                    InlineKeyboardButton("𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ✨", url="t.me/infobotmusik"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                [InlineKeyboardButton(text="**❎ 𝐂𝐋𝐎𝐒𝐄 ❎**", callback_data="cls")],
             ]
         )
 
@@ -289,10 +289,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🚨 Support", url="t.me/decodesupport"),
-                        InlineKeyboardButton("📡 Updates", url="t.me/DeeCodebots"),
+                        InlineKeyboardButton("✨ 𝐆𝐫𝐨𝐮𝐩𝐬", url="t.me/luciddreaams"),
+                        InlineKeyboardButton("𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ✨", url="t.me/infobotmusik"),
                     ],
-                    [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                    [InlineKeyboardButton(text="**❎ 𝐂𝐋𝐎𝐒𝐄 ❎**", callback_data="cls")],
                 ]
             )
 
@@ -302,7 +302,7 @@ async def play(_, message: Message):
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="YouTube 🎬", url="https://youtube.com")]]
+                [[InlineKeyboardButton(text="𝐘𝐨𝐮𝐭𝐮𝐛𝐞 🎬", url="https://youtube.com")]]
             )
 
         if (dur / 60) > DURATION_LIMIT:
@@ -316,12 +316,11 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "🧐 **Song not found! Try searching with the correct title\nExample » /play In The End\n\nChannel : @DeCodeMusicBot**"
-            )
-        await lel.edit("🔎 **Finding the song...**")
+                "❎ 𝐋𝐚𝐠𝐮 𝐭𝐢𝐝𝐚𝐤 𝐝𝐢𝐭𝐞𝐦𝐮𝐤𝐚𝐧. 𝐂𝐨𝐛𝐚 𝐜𝐚𝐫𝐢 𝐝𝐞𝐧𝐠𝐚𝐧 𝐣𝐮𝐝𝐮𝐥 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐥𝐞𝐛𝐢𝐡 𝐣𝐞𝐥𝐚𝐬.n/𝐂𝐨𝐧𝐭𝐨𝐡 » `/play Jentaka`n/n/𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @infobotmusik"
+        await lel.edit("🔎 **𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐧𝐜𝐚𝐫𝐢 𝐥𝐚𝐠𝐮...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🎵 **Processing sounds...**")
+        await lel.edit("🎵 **𝐌𝐞𝐧𝐠𝐡𝐮𝐛𝐮𝐧𝐠𝐤𝐚𝐧 𝐤𝐞 𝐕𝐂𝐆...**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -344,7 +343,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "❌ Song not found.\n\nTry another song or maybe spell it properly."
+                "❎ 𝐋𝐚𝐠𝐮 𝐭𝐢𝐝𝐚𝐤 𝐝𝐢𝐭𝐞𝐦𝐮𝐤𝐚𝐧. 𝐂𝐨𝐛𝐚 𝐜𝐚𝐫𝐢 𝐝𝐞𝐧𝐠𝐚𝐧 𝐣𝐮𝐝𝐮𝐥 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐥𝐞𝐛𝐢𝐡 𝐣𝐞𝐥𝐚𝐬.n/𝐂𝐨𝐧𝐭𝐨𝐡 » `/play Jentaka`"
             )
             print(str(e))
             return
@@ -352,10 +351,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🚨 Support", url="t.me/decodesupport"),
-                    InlineKeyboardButton("📡 Updates", url="t.me/DeeCodebots"),
+                    InlineKeyboardButton("✨ 𝐆𝐫𝐨𝐮𝐩𝐬", url="t.me/luciddreaams"),
+                    InlineKeyboardButton("𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ✨", url="t.me/infobotmusik"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                [InlineKeyboardButton(text="❎ 𝐂𝐋𝐎𝐒𝐄 ❎", callback_data="cls")],
             ]
         )
 
@@ -372,7 +371,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**🎵 Song:** {}\n**🕒 Duration:** {} min\n**👤 Added By:** {}\n\n**#⃣ Queued Position:** {}".format(
+            caption="**🎵 Judul:** {}\n**🕒 Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
                 title,
                 duration,
                 message.from_user.mention(),
@@ -385,7 +384,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**🎵 Song:** {}\n**🕒 Duration:** {} min\n**👤 Added By:** {}\n\n**▶️ Now Playing at `{}`...**".format(
+            caption="**🎵 Judul:** {}\n**🕒 Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
                 title, duration, message.from_user.mention(), message.chat.title
             ),
         )
