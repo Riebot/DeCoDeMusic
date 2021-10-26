@@ -60,7 +60,7 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{QUE_IMG}",
         reply_markup=keyboard,
-        caption=f"#⃣  𝐲𝐨𝐮𝐫 𝐫𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐬𝐨𝐧𝐠 𝐰𝐚𝐬 𝐚𝐝𝐝𝐞𝐝 𝐭𝐨 *𝐪𝐮𝐞𝐮𝐞* 𝐚𝐭 𝐩𝐨𝐬𝐢𝐭𝐢𝐨𝐧 {position}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐭𝐞𝐫𝐞𝐨 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__")
+        caption=f"# 𝐋𝐚𝐠𝐮 𝐩𝐞𝐫𝐦𝐢𝐧𝐭𝐚𝐚𝐧 𝐤𝐚𝐦𝐮 𝐝𝐢𝐭𝐚𝐦𝐛𝐚𝐡𝐤𝐚𝐧 𝐤𝐞 𝐚𝐧𝐭𝐫𝐢𝐚𝐧 𝐝𝐚𝐧 𝐛𝐞𝐫𝐚𝐝𝐚 𝐝𝐢 𝐩𝐨𝐬𝐢𝐬𝐢 {position}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐃𝐞𝐜𝐨𝐝𝐞 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
@@ -68,6 +68,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"🎧 **𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐦𝐮𝐭𝐚𝐫 𝐥𝐚𝐠𝐮 𝐚𝐭𝐚𝐬 𝐩𝐞𝐫𝐦𝐢𝐧𝐭𝐚𝐚𝐧** {costumer}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐭𝐞𝐫𝐞𝐨 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__"
+        caption=f"🎧 **𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐦𝐮𝐭𝐚𝐫 𝐥𝐚𝐠𝐮 𝐚𝐭𝐚𝐬 𝐩𝐞𝐫𝐦𝐢𝐧𝐭𝐚𝐚𝐧** {costumer}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐃𝐞𝐜𝐨𝐝𝐞 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__"
         )
         return await lel.delete()
