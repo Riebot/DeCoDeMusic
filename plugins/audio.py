@@ -53,14 +53,14 @@ async def stream(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await lel.edit_text("! 𝐲𝐨𝐮 𝐝𝐢𝐝 𝐧𝐨𝐭 𝐠𝐢𝐯𝐞 𝐦𝐞 𝐚𝐮𝐝𝐢𝐨 𝐟𝐢𝐥𝐞 𝐨𝐫 𝐲𝐭 𝐥𝐢𝐧𝐤 𝐭𝐨 𝐬𝐭𝐫𝐞𝐚𝐦!")
+        return await lel.edit_text("𝐒𝐢𝐥𝐚𝐡𝐤𝐚𝐧 𝐜𝐨𝐩𝐲 𝐩𝐚𝐬𝐭𝐞 𝐥𝐢𝐧𝐤 𝐝𝐚𝐫𝐢 𝐲𝐨𝐮𝐭𝐮𝐛𝐞 𝐦𝐮𝐬𝐢𝐤 𝐲𝐚𝐧𝐠 𝐢𝐧𝐠𝐢𝐧 𝐝𝐢 𝐦𝐚𝐢𝐧𝐤𝐚𝐧 𝐝𝐚𝐧 𝐛𝐚𝐥𝐚𝐬 𝐦𝐞𝐧𝐠𝐠𝐮𝐧𝐚𝐤𝐚𝐧 𝐩𝐞𝐫𝐢𝐧𝐭𝐚𝐡 `/audio`")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo=f"{QUE_IMG}",
         reply_markup=keyboard,
-        caption=f"#⃣  𝐲𝐨𝐮𝐫 𝐫𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐬𝐨𝐧𝐠 𝐰𝐚𝐬 𝐚𝐝𝐝𝐞𝐝 𝐭𝐨 *𝐪𝐮𝐞𝐮𝐞* 𝐚𝐭 𝐩𝐨𝐬𝐢𝐭𝐢𝐨𝐧 {position}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐃𝐞𝐂𝐨𝐝𝐞 𝐀.𝐈__")
+        caption=f"#⃣  𝐲𝐨𝐮𝐫 𝐫𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐬𝐨𝐧𝐠 𝐰𝐚𝐬 𝐚𝐝𝐝𝐞𝐝 𝐭𝐨 *𝐪𝐮𝐞𝐮𝐞* 𝐚𝐭 𝐩𝐨𝐬𝐢𝐭𝐢𝐨𝐧 {position}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐭𝐞𝐫𝐞𝐨 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
