@@ -317,7 +317,7 @@ async def play(_, message: Message):
         if len(message.command) < 2:
             return await lel.edit(
                 "❎ 𝐋𝐚𝐠𝐮 𝐭𝐢𝐝𝐚𝐤 𝐝𝐢𝐭𝐞𝐦𝐮𝐤𝐚𝐧. 𝐂𝐨𝐛𝐚 𝐜𝐚𝐫𝐢 𝐝𝐞𝐧𝐠𝐚𝐧 𝐣𝐮𝐝𝐮𝐥 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐥𝐞𝐛𝐢𝐡 𝐣𝐞𝐥𝐚𝐬.n/𝐂𝐨𝐧𝐭𝐨𝐡 » `/play Jentaka`n/n/𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @infobotmusik"
-        await lel.edit("`🔎 Sedang mencari lagu...`")
+        await lel.edit("🔎 Sedang mencari lagu...")
         query = message.text.split(None, 1)[1]
         # print(query)
         await lel.edit("`🎵 Menghubungkan ke VCG...`")
