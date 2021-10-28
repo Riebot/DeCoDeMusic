@@ -207,7 +207,7 @@ async def play(_, message: Message):
                     await USER.join_chat(invitelink)
                     await USER.send_message(
                         message.chat.id,
-                        "Assistant joined this group for playing music in VC",
+                        "𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧 𝐭𝐞𝐥𝐚𝐡 𝐛𝐞𝐫𝐠𝐚𝐛𝐮𝐧𝐠 𝐝𝐢 𝐠𝐫𝐮𝐩 𝐮𝐧𝐭𝐮𝐤 𝐦𝐞𝐦𝐛𝐚𝐧𝐭𝐮 𝐦𝐞𝐦𝐮𝐭𝐚𝐫 𝐦𝐮𝐬𝐢𝐜 𝐝𝐢 𝐨𝐛𝐫𝐨𝐥𝐚𝐧 𝐬𝐮𝐚𝐫𝐚",
                     )
                     await lel.edit(
                         "<b>Assistant joined this chat</b>",
@@ -224,7 +224,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i>Hey {user.first_name}, assistant userbot is not in this chat, ask admin to send /play command for first time to add it.</i>"
+            f"<i>Hey {user.first_name}, Asisten tidak ada dalam obrolan ini, suruh admin untuk mengirim perintah /play untuk pertama kali untuk menambahkannya.</i>"
         )
         return
 
@@ -238,7 +238,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"❌ Video lebih dari {DURATION_LIMIT} menit tidak dapat di putar!"
             )
 
         file_name = get_file_name(audio)
@@ -369,7 +369,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
+            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**🎧 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
                 title,
                 duration,
                 message.from_user.mention(),
@@ -382,7 +382,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**👤 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
+            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**🎧 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
                 title, duration, message.from_user.mention(), message.chat.title
             ),
         )
