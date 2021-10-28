@@ -319,7 +319,7 @@ async def play(_, message: Message):
         await lel.edit("**🔎 𝐒𝐞𝐝𝐚𝐧𝐠 𝐦𝐞𝐧𝐜𝐚𝐫𝐢 𝐥𝐚𝐠𝐮...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("**🎵 𝐌𝐞𝐧𝐠𝐡𝐮𝐛𝐮𝐧𝐠𝐤𝐚𝐧 𝐤𝐞 𝐯𝐜𝐠..**")
+        await lel.edit("**🎵 𝐌𝐞𝐧𝐠𝐡𝐮𝐛𝐮𝐧𝐠𝐤𝐚𝐧 𝐤𝐞 𝐯𝐜𝐠...**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -369,7 +369,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**🎧 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
+            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `Menit`\n**🎧 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
                 title,
                 duration,
                 message.from_user.mention(),
@@ -382,7 +382,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `menit`\n**🎧 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
+            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `Menit`\n**🎧 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
                 title, duration, message.from_user.mention(), message.chat.title
             ),
         )
