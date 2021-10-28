@@ -18,7 +18,7 @@ async def pause(_, message: Message):
     callsmusic.pytgcalls.pause_stream(message.chat.id)
     await message.reply_photo(
                              photo="https://telegra.ph/file/dd6814e241bfc4c0255cd.jpg", 
-                             caption="**⏸ Music Paused.\n use /resume**"
+                             caption="**⏸ 𝐌𝐮𝐬𝐢𝐜 𝐛𝐞𝐫𝐡𝐞𝐧𝐭𝐢 𝐬𝐞𝐦𝐞𝐧𝐭𝐚𝐫𝐚**"
     )
 
 
@@ -29,7 +29,7 @@ async def resume(_, message: Message):
     callsmusic.pytgcalls.resume_stream(message.chat.id)
     await message.reply_photo(
                              photo="https://telegra.ph/file/d0f2dd5b7519bb5444139.jpg", 
-                             caption="**▶️ Music Resumed.\n use /pause**"
+                             caption="**▶️ 𝐌𝐮𝐬𝐢𝐜 𝐝𝐢𝐥𝐚𝐧𝐣𝐮𝐭𝐤𝐚𝐧**"
     )
 
 
@@ -45,7 +45,7 @@ async def stop(_, message: Message):
     callsmusic.pytgcalls.leave_group_call(message.chat.id)
     await message.reply_photo(
                              photo="https://telegra.ph/file/8d22aa7d53b6acb9a125e.jpg", 
-                             caption="❌ **Stopped Streaming\n use /play for new song**"
+                             caption="❌ **𝐌𝐮𝐬𝐢𝐜 𝐭𝐞𝐥𝐚𝐡 𝐝𝐢𝐦𝐚𝐭𝐢𝐤𝐚𝐧**"
     )
 
 
@@ -56,7 +56,7 @@ async def skip(_, message: Message):
     global que
     chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ Nothing is playing to skip!")
+        await message.reply_text("❗ 𝐓𝐢𝐝𝐚𝐤 𝐚𝐝𝐚 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐝𝐢 𝐬𝐤𝐢𝐩!")
     else:
         callsmusic.queues.task_done(chat_id)
 
@@ -92,5 +92,5 @@ async def admincache(client, message: Message):
 
     await message.reply_photo(
                               photo="https://telegra.ph/file/d881ea9de7620ecc36d08.jpg",
-                              caption="**Reloaded\n Admin List updated**"
+                              caption="**Reloaded\n ✅ 𝐃𝐚𝐟𝐭𝐚𝐫 𝐚𝐝𝐦𝐢𝐧 𝐭𝐞𝐥𝐚𝐡 𝐝𝐢𝐩𝐞𝐫𝐛𝐚𝐫𝐮𝐢!**"
     )
