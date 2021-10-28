@@ -27,10 +27,11 @@ async def ytsearch(_, message: Message):
         results = YoutubeSearch(query, max_results=4).to_dict()
         text = ""
         for i in range(4):
-            text += f"Title - {results[i]['title']}\n"
-            text += f"Duration - {results[i]['duration']}\n"
-            text += f"Views - {results[i]['views']}\n"
-            text += f"Channel - {results[i]['channel']}\n"
+            text += f"🏷 𝐍𝐚𝐦𝐚 : `{results[i]['title']}`\n"
+            text += f"⏱️ 𝐃𝐮𝐫𝐚𝐬𝐢 : `{results[i]['duration']}`\n"
+            text += f"👀 𝐕𝐢𝐞𝐰𝐬 : `{results[i]['views']}`\n"
+            text += f"🛡 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : `{results[i]['channel']}`\n"
+            text += f"✨ 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 : __𝚂𝚝𝚎𝚛𝚎𝚘 𝚖𝚞𝚜𝚒𝚌 𝚙𝚛𝚘𝚓𝚎𝚌𝚝__\n"
             text += f"https://youtube.com{results[i]['url_suffix']}\n\n"
         await m.edit(text, disable_web_page_preview=True)
     except Exception as e:
