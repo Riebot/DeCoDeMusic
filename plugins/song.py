@@ -41,7 +41,7 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "❌ Lagu Tidak Di Temukan..Coba Masukan Judul Lagu Yang Lebih Jelas Dan Detail\nContoh: `/song for revenge - jentaka`"
+            ""❎ 𝐋𝐚𝐠𝐮 𝐭𝐢𝐝𝐚𝐤 𝐝𝐢𝐭𝐞𝐦𝐮𝐤𝐚𝐧? 𝐂𝐨𝐛𝐚 𝐜𝐚𝐫𝐢 𝐝𝐞𝐧𝐠𝐚𝐧 𝐣𝐮𝐝𝐮𝐥 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐥𝐞𝐛𝐢𝐡 𝐣𝐞𝐥𝐚𝐬\n𝐂𝐨𝐧𝐭𝐨𝐡 » `/play Jentaka`\n\n𝐂𝐡𝐚𝐧𝐧𝐞𝐥 : @infobotmusik"
         )
         print(str(e))
         return
@@ -51,7 +51,7 @@ def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"🏷 **𝐍𝐚𝐦𝐚** : [{title[:100]}]({link})\n🎬 **𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥** : `𝐘𝐨𝐮𝐭𝐮𝐛𝐞`\n⏱️ **𝐃𝐮𝐫𝐚𝐬𝐢** : `{duration}` `𝐌𝐞𝐧𝐢𝐭`\n👁‍🗨 **𝐕𝐢𝐞𝐰𝐬** : `{views}`\n✨ **𝐂𝐡𝐚𝐧𝐧𝐞𝐥** : @infobotmusik\n🎵 **𝐁𝐲** : @SilenceSpe4ks "
+        rep = f"🏷 **𝐍𝐚𝐦𝐚** : [{title[:100]}]({link})\n🎬 **𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥** : `𝐘𝐨𝐮𝐭𝐮𝐛𝐞`\n⏱️ **𝐃𝐮𝐫𝐚𝐬𝐢** : `{duration}` `𝐌𝐞𝐧𝐢𝐭`\n👁‍🗨 **𝐕𝐢𝐞𝐰𝐬** : `{views}`\n✨ **𝐒𝐮𝐩𝐩𝐨𝐫𝐭** : @infobotmusik\n🎵 **𝐁𝐲** : @SilenceSpe4ks "
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
