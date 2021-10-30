@@ -210,7 +210,7 @@ async def play(_, message: Message):
                         "𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧 𝐭𝐞𝐥𝐚𝐡 𝐛𝐞𝐫𝐠𝐚𝐛𝐮𝐧𝐠 𝐝𝐢 𝐠𝐫𝐮𝐩 𝐮𝐧𝐭𝐮𝐤 𝐦𝐞𝐦𝐛𝐚𝐧𝐭𝐮 𝐦𝐞𝐦𝐮𝐭𝐚𝐫 𝐦𝐮𝐬𝐢𝐜 𝐝𝐢 𝐨𝐛𝐫𝐨𝐥𝐚𝐧 𝐬𝐮𝐚𝐫𝐚",
                     )
                     await lel.edit(
-                        "<b>Assistant joined this chat</b>",
+                        "<b>𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧 𝐛𝐨𝐭 𝐬𝐮𝐝𝐚𝐡 𝐛𝐞𝐫𝐚𝐝𝐚 𝐝𝐢 𝐠𝐫𝐨𝐮𝐩 𝐢𝐧𝐢</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -369,7 +369,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `Menit`\n**🎧 Di request:** {}\n\n**#⃣ Antrian posisi:** {}".format(
+            caption="**💿 𝐉𝐮𝐝𝐮𝐥 :** {}\n**⏳ 𝐃𝐮𝐫𝐚𝐬𝐢 :** {} `𝐌𝐞𝐧𝐢𝐭`\n**🎧 𝐃𝐢 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 :** {}\n\n**🔢 𝐀𝐧𝐭𝐫𝐢𝐚𝐧 𝐩𝐨𝐬𝐢𝐬𝐢 :**» {}".format(
                 title,
                 duration,
                 message.from_user.mention(),
@@ -382,7 +382,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**💿 Judul:** {}\n**⏱️ Durasi:** {} `Menit`\n**🎧 Di request:** {}\n\n**▶️ Sedang memutar di `{}`...**".format(
+            caption="**💿 𝐉𝐮𝐝𝐮𝐥 :** {}\n**⏳ 𝐃𝐮𝐫𝐚𝐬𝐢 :** {} `𝐌𝐞𝐧𝐢𝐭`\n**🎧 𝐃𝐢 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 :** {}\n\n**▶️ 𝘚𝘦𝘥𝘢𝘯𝘨 𝘮𝘦𝘮𝘶𝘵𝘢𝘳 𝘥𝘪 `{}`...**".format(
                 title, duration, message.from_user.mention(), message.chat.title
             ),
         )
