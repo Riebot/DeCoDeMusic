@@ -47,7 +47,7 @@ async def start(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐋𝐢𝐬𝐭 📄", url="https://telegra.ph/Text-10-30-6")
+                        "𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐋𝐢𝐬𝐭 📄", url="https://telegra.ph/text-10-30-7")
                   ],[
                     InlineKeyboardButton(
                        "🌹 𝐆𝐫𝐨𝐮𝐩𝐬", url="https://t.me/luciddreaams"
