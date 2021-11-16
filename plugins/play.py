@@ -23,7 +23,6 @@ from helpers.channelmusic import get_chat_id
 import aiofiles
 import ffmpeg
 from PIL import Image, ImageFont, ImageDraw
-from pytgcalls.types.input_stream import InputAudioStream
 
 
 # plus
