@@ -9,6 +9,7 @@ from helpers.decorators import authorized_users_only, errors
 from helpers.channelmusic import get_chat_id
 from helpers.filters import command, other_filters
 from Client import callsmusic
+from pytgcalls.types.input_stream import InputAudioStream
 
 
 @Client.on_message(command(["pause", "jeda"]) & other_filters)
