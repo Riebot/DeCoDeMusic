@@ -1,8 +1,10 @@
-from pyrogram import Client
-from pytgcalls.pytgcalls import PyTgCalls
-
 import sira
 import config
+from pyrogram import Client
+from pytgcalls import PyTgCalls
+from pytgcalls.types import Update
+from pytgcalls.types.input_stream import InputAudioStream
+
 
 
 client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
@@ -10,15 +12,19 @@ pytgcalls = PyTgCalls(client)
 
 
 @pytgcalls.on_stream_end()
-def on_stream_end(chat_id: int) -> None:
-    sira.task_done(chat_id)
+async def on_stream_end(client: PyTgCalls, update: Update) -> None:
+    chat_id = update.chat_id
+    queues.task_done(chat_id)
 
-    if sira.is_empty(chat_id):
-        pytgcalls.leave_group_call(chat_id)
+    if queues.is_empty(chat_id):
+        await pytgcalls.leave_group_call(chat_id)
     else:
-        pytgcalls.change_stream(
-            chat_id, sira.get(chat_id)["file_path"]
+        await pytgcalls.change_stream(
+            chat_id, 
+            InputAudioStream(
+                queues.get(chat_id)["file"],
+            ),
         )
 
 
-run = pytgcalls.run
+run = pytgcalls.start
