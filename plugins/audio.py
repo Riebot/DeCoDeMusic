@@ -28,7 +28,7 @@ async def stream(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="✨ 𝐆𝐫𝐨𝐮𝐩𝐬",
+                        text="✨ 𝐆𝐫𝐨𝐮𝐩",
                         url=f"https://t.me/luciddreaams"),
                     InlineKeyboardButton(
                         text="🌻 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",
@@ -55,16 +55,16 @@ async def stream(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
     else:
         return await lel.edit_text("𝐒𝐢𝐥𝐚𝐡𝐤𝐚𝐧 𝐜𝐨𝐩𝐲 𝐩𝐚𝐬𝐭𝐞 𝐥𝐢𝐧𝐤 𝐝𝐚𝐫𝐢 𝐲𝐨𝐮𝐭𝐮𝐛𝐞 𝐦𝐮𝐬𝐢𝐤 𝐲𝐚𝐧𝐠 𝐢𝐧𝐠𝐢𝐧 𝐝𝐢 𝐦𝐚𝐢𝐧𝐤𝐚𝐧 𝐝𝐚𝐧 𝐛𝐚𝐥𝐚𝐬 𝐦𝐞𝐧𝐠𝐠𝐮𝐧𝐚𝐤𝐚𝐧 𝐩𝐞𝐫𝐢𝐧𝐭𝐚𝐡 `/audio`")
-
-    if message.chat.id in callsmusic.pytgcalls.active_calls:
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))    
+    if int(message.chat.id) in ACTV_CALLS:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo=f"{QUE_IMG}",
         reply_markup=keyboard,
         caption=f"# 𝐋𝐚𝐠𝐮 𝐩𝐞𝐫𝐦𝐢𝐧𝐭𝐚𝐚𝐧 𝐤𝐚𝐦𝐮 𝐝𝐢𝐭𝐚𝐦𝐛𝐚𝐡𝐤𝐚𝐧 𝐤𝐞 𝐚𝐧𝐭𝐫𝐢𝐚𝐧 𝐝𝐚𝐧 𝐛𝐞𝐫𝐚𝐝𝐚 𝐝𝐢 𝐩𝐨𝐬𝐢𝐬𝐢 {position}!\n\n⚡ __𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐭𝐞𝐫𝐞𝐨 𝐦𝐮𝐬𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭__")
-        return await lel.delete()
     else:
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        await callsmusic.pytgcalls.join_group_call(message.chat.id, InputAudioStream(file_path))
         costumer = message.from_user.mention
         await message.reply_photo(
         photo=f"{AUD_IMG}",
