@@ -2,7 +2,7 @@ from os import path
 
 from pyrogram import Client
 from pyrogram.types import Message, Voice
-
+from pytgcalls.types.input_stream import InputAudioStream
 from Client import callsmusic, queues
 
 import converter
@@ -14,6 +14,7 @@ from helpers.decorators import errors
 from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 
 @Client.on_message(command("audio") & other_filters)
 @errors
