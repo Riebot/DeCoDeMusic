@@ -1,6 +1,6 @@
 from asyncio.queues import QueueEmpty
-from config import que
 from config import BOT_USERNAME
+from config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import sira
@@ -10,16 +10,18 @@ from helpers.decorators import authorized_users_only, errors
 from helpers.channelmusic import get_chat_id
 from helpers.filters import command, other_filters
 from Client import callsmusic
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 
 
 @Client.on_message(command(["pause", "jeda"]) & other_filters)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
-    callsmusic.pytgcalls.pause_stream(message.chat.id)
+    await callsmusic.pytgcalls.pause_stream(message.chat.id)
     await message.reply_photo(
-                             photo="https://telegra.ph/file/e6443c3ba9f2cc48f5fa3.jpg", 
-                             caption="**⏸ 𝐌𝐮𝐬𝐢𝐜 𝐛𝐞𝐫𝐡𝐞𝐧𝐭𝐢 𝐬𝐞𝐦𝐞𝐧𝐭𝐚𝐫𝐚**"
+                             photo="https://telegra.ph/file/dd6814e241bfc4c0255cd.jpg", 
+                             caption="**⏸ Music Paused.\n use /resume**"
     )
 
 
@@ -27,10 +29,10 @@ async def pause(_, message: Message):
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
-    callsmusic.pytgcalls.resume_stream(message.chat.id)
+    await callsmusic.pytgcalls.resume_stream(message.chat.id)
     await message.reply_photo(
-                             photo="https://telegra.ph/file/126ebe97a5f318a67e24a.jpg", 
-                             caption="**▶️ 𝐌𝐮𝐬𝐢𝐜 𝐝𝐢𝐥𝐚𝐧𝐣𝐮𝐭𝐤𝐚𝐧 **"
+                             photo="https://telegra.ph/file/d0f2dd5b7519bb5444139.jpg", 
+                             caption="**▶️ Music Resumed.\n use /pause**"
     )
 
 
@@ -43,40 +45,46 @@ async def stop(_, message: Message):
     except QueueEmpty:
         pass
 
-    callsmusic.pytgcalls.leave_group_call(message.chat.id)
+    await callsmusic.pytgcalls.leave_group_call(message.chat.id)
     await message.reply_photo(
-                             photo="https://telegra.ph/file/ca39c6b4904288d69a6d9.jpg", 
-                             caption="⏹ **𝐌𝐮𝐬𝐢𝐜 𝐭𝐞𝐥𝐚𝐡 𝐝𝐢𝐦𝐚𝐭𝐢𝐤𝐚𝐧**"
+                             photo="https://telegra.ph/file/8d22aa7d53b6acb9a125e.jpg", 
+                             caption="❌ **Stopped Streaming\n use /play for new song**"
     )
 
-
-@Client.on_message(command(["skip", "next"]) & other_filters)
+@Client.on_message(command(["skip", "second", "next", f"next@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def skip(_, message: Message):
     global que
-    chat_id = get_chat_id(message.chat)
-    if chat_id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❎ 𝐓𝐢𝐝𝐚𝐤 𝐚𝐝𝐚 𝐥𝐚𝐠𝐮 𝐲𝐚𝐧𝐠 𝐝𝐢 𝐬𝐤𝐢𝐩!")
+    chat_id = message.chat.id
+    ACTV_CALLS = {}
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
+        await message.reply_text("❌ **no music is currently playing**")
     else:
-        callsmusic.queues.task_done(chat_id)
-
-        if callsmusic.queues.is_empty(chat_id):
-            callsmusic.pytgcalls.leave_group_call(chat_id)
+        queues.task_done(chat_id)
+        
+        if queues.is_empty(chat_id):
+            await callsmusic.pytgcalls.leave_group_call(chat_id)
         else:
-            callsmusic.pytgcalls.change_stream(
-                chat_id, callsmusic.queues.get(chat_id)["file"]
+            await callsmusic.pytgcalls.change_stream(
+                chat_id, 
+                InputStream(
+                    InputAudioStream(
+                        callsmusic.queues.get(chat_id)["file"],
+                    ),
+                ),
             )
-
+                
     qeue = que.get(chat_id)
     if qeue:
-        skip = qeue.pop(0)
+        qeue.pop(0)
     if not qeue:
         return
-    await message.reply_photo(
-                             photo="https://telegra.ph/file/96129f4d0e984d2432e55.jpg", 
-                             caption=f'- Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**'
-    )
+    await message.reply_text("⏭ **You've skipped to the next song.**")
+
+
 
 
 @Client.on_message(filters.command(["reload", "refresh"]))
@@ -93,4 +101,5 @@ async def admincache(client, message: Message):
 
     await message.reply_photo(
                               photo="https://telegra.ph/file/d881ea9de7620ecc36d08.jpg",
-                              caption="**Reloaded\n ✅ 𝐃𝐚𝐟𝐭𝐚𝐫 𝐚𝐝𝐦𝐢𝐧 𝐭𝐞𝐥𝐚𝐡 𝐝𝐢𝐩𝐞𝐫𝐛𝐚𝐫𝐮𝐢!**")
+                              caption="**Reloaded\n Admin List updated**"
+    )
