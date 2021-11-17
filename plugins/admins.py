@@ -79,8 +79,6 @@ async def skip(_, message: Message):
         return
     await message.reply_text("⏭ **You've skipped to the next song.**")
 
-   ) 
-
 
 @Client.on_message(filters.command(["reload", "refresh"]))
 @errors
