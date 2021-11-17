@@ -374,8 +374,9 @@ async def play(_, message: Message):
             reply_markup=keyboard,
         )
     else:
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_photo(
+        callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+        await cb.message.delete()
+        await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
             caption="**💿 𝐉𝐮𝐝𝐮𝐥 :** {}\n**⏳ 𝐃𝐮𝐫𝐚𝐬𝐢 :** {} `𝐌𝐞𝐧𝐢𝐭`\n**🎧 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐛𝐲 :** {}\n**🌟 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 :** `Stereo Project`\n\n**🎵 𝘚𝘦𝘥𝘢𝘯𝘨 𝘮𝘦𝘮𝘶𝘵𝘢𝘳 𝘮𝘶𝘴𝘪𝘤 𝘥𝘪 `{}`...**".format(
@@ -384,4 +385,3 @@ async def play(_, message: Message):
         )
 
     os.remove("final.png")
-    return await lel.delete()
