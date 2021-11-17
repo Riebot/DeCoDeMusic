@@ -390,6 +390,7 @@ async def play(_, message: Message):
                 ),
                 stream_type=StreamType().local_stream,
             ) 
+        await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
             caption="**💿 𝐉𝐮𝐝𝐮𝐥 :** {}\n**⏳ 𝐃𝐮𝐫𝐚𝐬𝐢 :** {} `𝐌𝐞𝐧𝐢𝐭`\n**🎧 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐛𝐲 :** {}\n**🌟 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 :** `Stereo Project`\n\n**🎵 𝘚𝘦𝘥𝘢𝘯𝘨 𝘮𝘦𝘮𝘶𝘵𝘢𝘳 𝘮𝘶𝘴𝘪𝘤 𝘥𝘪 `{}`...**".format(
