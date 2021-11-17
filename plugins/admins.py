@@ -76,7 +76,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text("⏭ **You've skipped to the next song.**")
+    await message.reply_text("⏭ **𝐊𝐚𝐦𝐮 𝐭𝐞𝐥𝐚𝐡 𝐦𝐞𝐥𝐞𝐰𝐚𝐭𝐤𝐚𝐧 𝐥𝐚𝐠𝐮 𝐛𝐞𝐫𝐢𝐤𝐮𝐭𝐧𝐲𝐚..**")
 
 
 @Client.on_message(filters.command(["reload", "refresh"]))
