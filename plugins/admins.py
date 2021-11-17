@@ -77,9 +77,8 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_photo(
-                             photo="https://telegra.ph/file/96129f4d0e984d2432e55.jpg", 
-                             caption=f'- Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**'
+    await message.reply_text("⏭ **You've skipped to the next song.**")
+
    ) 
 
 
