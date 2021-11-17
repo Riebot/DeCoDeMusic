@@ -23,11 +23,6 @@ from helpers.channelmusic import get_chat_id
 import aiofiles
 import ffmpeg
 from PIL import Image, ImageFont, ImageDraw
-from pytgcalls import StreamType
-from pytgcalls.types.input_stream import InputAudioStream
-from pytgcalls.types.input_stream import InputStream
-
-
 
 # plus
 chat_id = None
@@ -94,11 +89,16 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/font.otf", 32)
+    font = ImageFont.truetype("etc/font.otf", 30)
     draw.text((190, 550), f"Judul: {title}", (255, 255, 255), font=font)
     draw.text((190, 590), f"Durasi: {duration} Menit", (255, 255, 255), font=font)
     draw.text((190, 630), f"Dilihat: {views}", (255, 255, 255), font=font)
-    draw.text((190, 670), f"Request By: {requested_by}", (255, 255, 255), font=font)
+    draw.text(
+        (190, 670),
+        f"Request By: {requested_by}",
+        (255, 255, 255),
+        font=font,
+    )
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
@@ -184,7 +184,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "Stereo music project"
+        user.first_name = "@Stereo_Ast"
     usar = user
     wew = usar.id
     try:
@@ -296,7 +296,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://telegra.ph/file/53477955b5326a88eceb9.jpg"
+            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -364,10 +364,8 @@ async def play(_, message: Message):
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await converter.convert(youtube.download(url))
-    ACTV_CALLS = []
-    for x in callsmusic.pytgcalls.active_calls:
-        ACTV_CALLS.append(int(x.chat_id))
-    if int(message.chat.id) in ACTV_CALLS:
+
+    if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
@@ -380,15 +378,7 @@ async def play(_, message: Message):
             reply_markup=keyboard,
         )
     else:
-        await callsmusic.pytgcalls.join_group_call(
-                message.chat.id, 
-                InputStream(
-                    InputAudioStream(
-                        file_path,
-                    ),
-                ),
-                stream_type=StreamType().local_stream,
-            ) 
+        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
