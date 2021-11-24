@@ -1,18 +1,17 @@
+import config
 from pyrogram import Client
 from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
-from pytgcalls.types.input_stream import InputAudioStream
-
-from config import API_HASH, API_ID, SESSION_NAME
+from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from . import queues
 
-client = Client(SESSION_NAME, API_ID, API_HASH)
+client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
 pytgcalls = PyTgCalls(client)
 
 
 @pytgcalls.on_stream_end()
-async def on_stream_end(client: PyTgCalls, update: Update) -> None:
+async def on_stream_end(_, update: Update):
     chat_id = update.chat_id
     queues.task_done(chat_id)
 
@@ -20,9 +19,11 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
         await pytgcalls.leave_group_call(chat_id)
     else:
         await pytgcalls.change_stream(
-            chat_id, 
-            InputAudioStream(
-                queues.get(chat_id)["file"],
+            chat_id,
+            InputStream(
+                InputAudioStream(
+                    queues.get(chat_id)["file"],
+                ),
             ),
         )
 
