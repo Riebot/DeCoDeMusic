@@ -1,12 +1,15 @@
 from asyncio.queues import QueueEmpty
-
-from cache.admins import set
-from Client import callsmusic
-from helpers.decorators import authorized_users_only, errors
-from helpers.filters import command, other_filters
+from config import BOT_USERNAME
+from config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+from cache.admins import set
+from helpers.decorators import authorized_users_only, errors
+from helpers.channelmusic import get_chat_id
+from helpers.filters import command, other_filters
+from Client import callsmusic, queues
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 
 
 @Client.on_message(command(["pause", "jeda"]) & other_filters)
