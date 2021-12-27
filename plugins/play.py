@@ -76,14 +76,12 @@ def changeImageSize(maxWidth, maxHeight, image):
     return image.resize((newWidth, newHeight))
 
 
-async def generate_cover(requested_by, title, views, duration, thumbnail):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(thumbnail) as resp:
-            if resp.status == 200:
-                f = await aiofiles.open("background.png", mode="wb")
-                await f.write(await resp.read())
-                await f.close()
-
+async def generate_cover(title, thumbnail):
+    async with aiohttp.ClientSession() as session, session.get(thumbnail) as resp:
+          if resp.status == 200:
+              f = await aiofiles.open("background.png", mode="wb")
+              await f.write(await resp.read())
+              await f.close()
     image1 = Image.open("./background.png")
     image2 = Image.open("etc/foreground.png")
     image3 = changeImageSize(1280, 720, image1)
@@ -93,16 +91,10 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/font.otf", 30)
-    draw.text((190, 550), f"Judul: {title}", (255, 255, 255), font=font)
-    draw.text((190, 590), f"Durasi: {duration} Menit", (255, 255, 255), font=font)
-    draw.text((190, 630), f"Dilihat: {views}", (255, 255, 255), font=font)
-    draw.text(
-        (190, 670),
-        f"Request By: {requested_by}",
-        (255, 255, 255),
-        font=font,
-    )
+    font = ImageFont.truetype("etc/regular.ttf", 52)
+    font2 = ImageFont.truetype("etc/medium.ttf", 76)
+    draw.text((27, 538), f"Playing..", (0, 0, 0), font=font)
+    draw.text((27, 612), f"{title[:18]}...", (0, 0, 0), font=font2)
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
