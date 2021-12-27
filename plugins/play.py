@@ -23,11 +23,15 @@ from helpers.channelmusic import get_chat_id
 import aiofiles
 import ffmpeg
 from PIL import Image, ImageFont, ImageDraw
+from pytgcalls import StreamType
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 
 # plus
 chat_id = None
 DISABLED_GROUPS = []
 useer = "NaN"
+ACTV_CALLS = []
 
 
 def cb_admin_check(func: Callable) -> Callable:
@@ -378,7 +382,15 @@ async def play(_, message: Message):
             reply_markup=keyboard,
         )
     else:
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        await callsmusic.pytgcalls.join_group_call(
+                chat_id, 
+                InputStream(
+                    InputAudioStream(
+                        file_path,
+                    ),
+                ),
+                stream_type=StreamType().local_stream,
+            ) 
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
