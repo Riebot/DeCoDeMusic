@@ -360,9 +360,10 @@ async def play(_, message: Message):
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await converter.convert(youtube.download(url))
-
-    if message.chat.id in callsmusic.pytgcalls.active_calls:
-        position = await queues.put(message.chat.id, file=file_path)
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) in ACTV_CALLS:
+        position = await queues.put(chat_id, file=file_path)
         await message.reply_photo(
             photo="final.png",
             caption="**💿 𝐉𝐮𝐝𝐮𝐥 :** {}\n**⏳ 𝐃𝐮𝐫𝐚𝐬𝐢 :** {} `𝐌𝐞𝐧𝐢𝐭`\n**🎧 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐛𝐲 :** {}\n**🌟 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 :** `Stereo Project`\n\n**🔢 𝐒𝐞𝐝𝐚𝐧𝐠 𝐚𝐧𝐭𝐫𝐢 𝐝𝐢 𝐩𝐨𝐬𝐢𝐬𝐢 𝐤𝐞 » `{}`...**".format(
